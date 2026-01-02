@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
+import { Heebo } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getLocale } from 'next-intl/server'
 import './globals.css'
+
+const heebo = Heebo({
+  subsets: ['hebrew', 'latin'],
+  variable: '--font-heebo',
+})
 
 export const metadata: Metadata = {
   title: 'ד״ר רוג׳ה - קליניקה וטרינרית',
@@ -24,6 +30,7 @@ export default async function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="font-sans antialiased">
+      <body className={`${heebo.variable} font-sans antialiased`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
