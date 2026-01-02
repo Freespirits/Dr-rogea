@@ -2,9 +2,10 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Plus, Search, Calendar, Weight, Syringe, FileText, MoreVertical } from 'lucide-react'
+import Link from 'next/link'
+import { Plus, Search, Calendar, Weight, Syringe, FileText, ChevronLeft } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 // Demo data
 const pets = [
@@ -83,13 +84,13 @@ const getSpeciesEmoji = (species: string) => {
 
 const getSpeciesColor = (species: string) => {
   const colors: Record<string, string> = {
-    dog: 'from-amber-400 to-amber-600',
-    cat: 'from-purple-400 to-purple-600',
-    bird: 'from-sky-400 to-sky-600',
-    rabbit: 'from-pink-400 to-pink-600',
-    hamster: 'from-orange-400 to-orange-600',
+    dog: 'bg-amber-500',
+    cat: 'bg-purple-500',
+    bird: 'bg-sky-500',
+    rabbit: 'bg-pink-500',
+    hamster: 'bg-orange-500',
   }
-  return colors[species] || 'from-gray-400 to-gray-600'
+  return colors[species] || 'bg-gray-500'
 }
 
 const calculateAge = (birthDate: string) => {
@@ -118,23 +119,33 @@ export default function PetsPage() {
     return matchesSearch && matchesSpecies
   })
 
+  const speciesOptions = [
+    { value: 'all', label: 'הכל' },
+    { value: 'dog', emoji: '🐕' },
+    { value: 'cat', emoji: '🐈' },
+    { value: 'hamster', emoji: '🐹' },
+    { value: 'bird', emoji: '🐦' },
+    { value: 'rabbit', emoji: '🐰' },
+  ]
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 animate-fade-in">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">{t('title')}</h1>
-          <p className="text-gray-500 mt-1">{pets.length} חיות מחמד רשומות</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('title')}</h1>
+          <p className="text-sm text-gray-500">{pets.length} חיות מחמד רשומות</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2 w-full sm:w-auto">
           <Plus className="w-5 h-5" />
           {t('addNew')}
         </Button>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-4">
-        <div className="relative flex-1 max-w-md">
+      {/* Search & Filter */}
+      <div className="space-y-3">
+        {/* Search */}
+        <div className="relative">
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
@@ -145,86 +156,104 @@ export default function PetsPage() {
           />
         </div>
 
-        <div className="flex gap-2">
-          {['all', 'dog', 'cat', 'hamster', 'bird', 'rabbit'].map((species) => (
+        {/* Species Filter - Horizontal Scroll */}
+        <div className="flex overflow-x-auto gap-2 pb-1 -mx-1 px-1">
+          {speciesOptions.map((option) => (
             <button
-              key={species}
-              onClick={() => setSpeciesFilter(species)}
-              className={`px-4 py-2 rounded-xl transition-all ${
-                speciesFilter === species
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              key={option.value}
+              onClick={() => setSpeciesFilter(option.value)}
+              className={cn(
+                'flex-shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all touch-feedback',
+                speciesFilter === option.value
+                  ? 'bg-primary-500 text-white shadow-sm'
+                  : 'bg-gray-100 text-gray-600 active:bg-gray-200'
+              )}
             >
-              {species === 'all' ? 'הכל' : getSpeciesEmoji(species)}
+              {option.label || option.emoji}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Pets Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredPets.map((pet) => (
-          <Card key={pet.id} className="card-hover overflow-hidden">
-            <CardContent className="p-0">
-              {/* Header with gradient */}
-              <div className={`h-24 bg-gradient-to-br ${getSpeciesColor(pet.species)} relative`}>
-                <div className="absolute -bottom-8 right-4">
-                  <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center text-3xl">
-                    {getSpeciesEmoji(pet.species)}
-                  </div>
-                </div>
-                <button className="absolute top-2 left-2 p-1 rounded-lg bg-white/20 hover:bg-white/30 text-white">
-                  <MoreVertical className="w-5 h-5" />
-                </button>
+      {/* Pets List */}
+      <div className="space-y-3">
+        {filteredPets.map((pet, index) => (
+          <div
+            key={pet.id}
+            className="mobile-card p-4 animate-fade-in touch-feedback"
+            style={{ animationDelay: `${index * 30}ms` }}
+          >
+            <div className="flex items-start gap-3">
+              {/* Avatar */}
+              <div className={cn(
+                'w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm',
+                getSpeciesColor(pet.species)
+              )}>
+                <span className="drop-shadow-sm">{getSpeciesEmoji(pet.species)}</span>
               </div>
 
-              <div className="p-4 pt-10">
-                {/* Name and breed */}
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">{pet.name}</h3>
-                  <p className="text-sm text-gray-500">{pet.breed} • {pet.gender === 'male' ? 'זכר' : 'נקבה'}</p>
-                  <p className="text-sm text-primary-600">בעלים: {pet.owner}</p>
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3 className="font-bold text-gray-900">{pet.name}</h3>
+                    <p className="text-xs text-gray-500">
+                      {pet.breed} • {pet.gender === 'male' ? 'זכר' : 'נקבה'}
+                    </p>
+                  </div>
+                  <Link
+                    href={`/pets/${pet.id}`}
+                    className="p-2 rounded-lg bg-gray-100 active:bg-gray-200 transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-gray-500" />
+                  </Link>
                 </div>
 
-                {/* Info grid */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Calendar className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-600">{calculateAge(pet.birthDate)}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Weight className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-600">{pet.weight} ק״ג</span>
-                  </div>
+                {/* Quick Stats */}
+                <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {calculateAge(pet.birthDate)}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Weight className="w-3.5 h-3.5" />
+                    {pet.weight} ק״ג
+                  </span>
                 </div>
 
-                {/* Last visit and next vaccine */}
-                <div className="border-t border-gray-100 pt-4 space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-500 flex items-center gap-1">
-                      <FileText className="w-4 h-4" />
-                      ביקור אחרון:
-                    </span>
-                    <span className="text-gray-700">{new Date(pet.lastVisit).toLocaleDateString('he-IL')}</span>
-                  </div>
+                {/* Owner & Vaccine */}
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                  <span className="text-xs text-primary-600 font-medium">{pet.owner}</span>
                   {pet.nextVaccine && (
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500 flex items-center gap-1">
-                        <Syringe className="w-4 h-4" />
-                        חיסון הבא:
-                      </span>
-                      <span className="text-orange-600 font-medium">
-                        {new Date(pet.nextVaccine).toLocaleDateString('he-IL')}
-                      </span>
-                    </div>
+                    <span className="flex items-center gap-1 text-xs text-orange-600">
+                      <Syringe className="w-3.5 h-3.5" />
+                      {new Date(pet.nextVaccine).toLocaleDateString('he-IL', {
+                        day: 'numeric',
+                        month: 'short',
+                      })}
+                    </span>
                   )}
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
+
+      {/* Empty State */}
+      {filteredPets.length === 0 && (
+        <div className="empty-state">
+          <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+            <span className="text-3xl">🐾</span>
+          </div>
+          <p className="text-gray-500 text-sm">לא נמצאו חיות מחמד</p>
+        </div>
+      )}
+
+      {/* FAB */}
+      <Link href="/pets/new" className="fab md:hidden">
+        <Plus className="w-6 h-6" />
+      </Link>
     </div>
   )
 }
