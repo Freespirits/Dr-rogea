@@ -1,0 +1,28 @@
+{
+  "name": "wasp-plugins",
+  "owner": {
+    "name": "Wasp",
+    "email": "info@wasp-lang.dev",
+    "url": "https://wasp.sh"
+  },
+  "metadata": {
+    "description": "Official Claude Code plugins for the Wasp framework",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "wasp",
+      "source": "./plugins/wasp",
+      "description": "Enhances Claude to give you an optimal experience developing full-stack web apps with Wasp (React, Node.js, Prisma), by providing curated access to docs, workflows and best practices.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚡️ QUICK START\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🧠 /wasp:init - initial setup (run this first!)\n📖 /wasp:help - view all plugin features",
+      "version": "1.0.0",
+      "author": {
+        "name": "Wasp"
+      },
+      "homepage": "https://wasp.sh",
+      "repository": "https://github.com/wasp-lang/claude-plugins",
+      "license": "MIT",
+      "category": "framework",
+      "keywords": ["wasp", "full-stack", "react", "nodejs", "deployment", "authentication", "web-development"]
+    }
+  ]
+}
