@@ -24,14 +24,11 @@
   --color-accent-700: #a21caf;
   --color-accent-800: #86198f;
   --color-accent-900: #701a75;
-:root {
-  --font-heebo: 'Heebo', system-ui, sans-serif;
 }
 
 @layer base {
   html {
     direction: rtl;
-    font-family: var(--font-heebo);
   }
 
   html[lang='en'] {
@@ -42,10 +39,6 @@
     @apply bg-gradient-to-br from-gray-50 via-green-50/30 to-purple-50/20 min-h-screen;
   }
 
-    @apply bg-gradient-to-br from-gray-50 via-primary-50/30 to-accent-50/20 min-h-screen;
-  }
-
-  /* Smooth scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
