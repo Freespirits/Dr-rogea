@@ -1,0 +1,147 @@
+{
+  "common": {
+    "appName": "ד״ר רוג׳ה - קליניקה וטרינרית",
+    "welcome": "ברוכים הבאים",
+    "loading": "טוען...",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "delete": "מחק",
+    "edit": "ערוך",
+    "add": "הוסף",
+    "search": "חיפוש",
+    "filter": "סינון",
+    "noResults": "לא נמצאו תוצאות",
+    "confirm": "אישור",
+    "back": "חזרה",
+    "next": "הבא",
+    "previous": "הקודם"
+  },
+  "nav": {
+    "dashboard": "לוח בקרה",
+    "clients": "לקוחות",
+    "pets": "חיות מחמד",
+    "appointments": "תורים",
+    "treatments": "טיפולים",
+    "vaccinations": "חיסונים",
+    "reminders": "תזכורות",
+    "info": "מידע וייעוץ",
+    "settings": "הגדרות"
+  },
+  "dashboard": {
+    "title": "לוח בקרה",
+    "todayAppointments": "תורים להיום",
+    "upcomingReminders": "תזכורות קרובות",
+    "recentClients": "לקוחות אחרונים",
+    "stats": {
+      "totalClients": "סה״כ לקוחות",
+      "totalPets": "סה״כ חיות",
+      "thisMonthAppointments": "תורים החודש",
+      "pendingReminders": "תזכורות ממתינות"
+    }
+  },
+  "clients": {
+    "title": "ניהול לקוחות",
+    "addNew": "הוסף לקוח חדש",
+    "name": "שם",
+    "email": "דוא״ל",
+    "phone": "טלפון",
+    "address": "כתובת",
+    "pets": "חיות מחמד",
+    "since": "לקוח מאז"
+  },
+  "pets": {
+    "title": "חיות מחמד",
+    "addNew": "הוסף חיית מחמד",
+    "name": "שם",
+    "species": "מין",
+    "breed": "גזע",
+    "age": "גיל",
+    "gender": "מגדר",
+    "weight": "משקל",
+    "owner": "בעלים",
+    "medicalHistory": "היסטוריה רפואית",
+    "speciesOptions": {
+      "dog": "כלב",
+      "cat": "חתול",
+      "bird": "ציפור",
+      "rabbit": "ארנב",
+      "hamster": "אוגר",
+      "other": "אחר"
+    },
+    "genderOptions": {
+      "male": "זכר",
+      "female": "נקבה"
+    }
+  },
+  "appointments": {
+    "title": "ניהול תורים",
+    "schedule": "קביעת תור",
+    "date": "תאריך",
+    "time": "שעה",
+    "type": "סוג",
+    "status": "סטטוס",
+    "notes": "הערות",
+    "typeOptions": {
+      "checkup": "בדיקה",
+      "vaccination": "חיסון",
+      "surgery": "ניתוח",
+      "emergency": "חירום",
+      "grooming": "טיפוח",
+      "consultation": "ייעוץ"
+    },
+    "statusOptions": {
+      "scheduled": "מתוזמן",
+      "completed": "הושלם",
+      "cancelled": "בוטל",
+      "no_show": "לא הגיע"
+    }
+  },
+  "vaccinations": {
+    "title": "מעקב חיסונים",
+    "addNew": "הוסף חיסון",
+    "name": "שם החיסון",
+    "dateGiven": "תאריך מתן",
+    "nextDue": "תאריך חיסון הבא",
+    "batchNumber": "מספר אצווה"
+  },
+  "treatments": {
+    "title": "טיפולים",
+    "addNew": "הוסף טיפול",
+    "type": "סוג טיפול",
+    "description": "תיאור",
+    "typeOptions": {
+      "medication": "תרופות",
+      "procedure": "פרוצדורה",
+      "surgery": "ניתוח",
+      "preventive": "מניעתי"
+    }
+  },
+  "reminders": {
+    "title": "תזכורות",
+    "create": "צור תזכורת",
+    "dueDate": "תאריך יעד",
+    "message": "הודעה",
+    "sent": "נשלח",
+    "pending": "ממתין"
+  },
+  "info": {
+    "title": "מידע וייעוץ וטרינרי",
+    "categories": {
+      "snake_bite": "הכשת נחש",
+      "ticks": "קרציות",
+      "deworming": "תילוע",
+      "park_worm": "תולעת הפארק",
+      "oral_health": "בריאות הפה והלסת",
+      "grooming": "טיפוח הפרווה",
+      "allergies": "אלרגיות",
+      "tumors": "גידולים שפירים",
+      "urinary": "מערכת השתן והכליות",
+      "neutering": "סירוס/עיקור"
+    }
+  },
+  "footer": {
+    "contact": "יצירת קשר",
+    "hours": "שעות פעילות",
+    "emergency": "חירום 24/7"
+  }
+}

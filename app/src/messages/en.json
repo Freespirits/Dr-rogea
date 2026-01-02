@@ -1,0 +1,147 @@
+{
+  "common": {
+    "appName": "Dr. Rogea - Veterinary Clinic",
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "pets": "Pets",
+    "appointments": "Appointments",
+    "treatments": "Treatments",
+    "vaccinations": "Vaccinations",
+    "reminders": "Reminders",
+    "info": "Info & Advice",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "todayAppointments": "Today's Appointments",
+    "upcomingReminders": "Upcoming Reminders",
+    "recentClients": "Recent Clients",
+    "stats": {
+      "totalClients": "Total Clients",
+      "totalPets": "Total Pets",
+      "thisMonthAppointments": "Appointments This Month",
+      "pendingReminders": "Pending Reminders"
+    }
+  },
+  "clients": {
+    "title": "Client Management",
+    "addNew": "Add New Client",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "pets": "Pets",
+    "since": "Client Since"
+  },
+  "pets": {
+    "title": "Pets",
+    "addNew": "Add New Pet",
+    "name": "Name",
+    "species": "Species",
+    "breed": "Breed",
+    "age": "Age",
+    "gender": "Gender",
+    "weight": "Weight",
+    "owner": "Owner",
+    "medicalHistory": "Medical History",
+    "speciesOptions": {
+      "dog": "Dog",
+      "cat": "Cat",
+      "bird": "Bird",
+      "rabbit": "Rabbit",
+      "hamster": "Hamster",
+      "other": "Other"
+    },
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "appointments": {
+    "title": "Appointment Management",
+    "schedule": "Schedule Appointment",
+    "date": "Date",
+    "time": "Time",
+    "type": "Type",
+    "status": "Status",
+    "notes": "Notes",
+    "typeOptions": {
+      "checkup": "Checkup",
+      "vaccination": "Vaccination",
+      "surgery": "Surgery",
+      "emergency": "Emergency",
+      "grooming": "Grooming",
+      "consultation": "Consultation"
+    },
+    "statusOptions": {
+      "scheduled": "Scheduled",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "no_show": "No Show"
+    }
+  },
+  "vaccinations": {
+    "title": "Vaccination Tracking",
+    "addNew": "Add Vaccination",
+    "name": "Vaccine Name",
+    "dateGiven": "Date Given",
+    "nextDue": "Next Due Date",
+    "batchNumber": "Batch Number"
+  },
+  "treatments": {
+    "title": "Treatments",
+    "addNew": "Add Treatment",
+    "type": "Treatment Type",
+    "description": "Description",
+    "typeOptions": {
+      "medication": "Medication",
+      "procedure": "Procedure",
+      "surgery": "Surgery",
+      "preventive": "Preventive"
+    }
+  },
+  "reminders": {
+    "title": "Reminders",
+    "create": "Create Reminder",
+    "dueDate": "Due Date",
+    "message": "Message",
+    "sent": "Sent",
+    "pending": "Pending"
+  },
+  "info": {
+    "title": "Veterinary Information & Advice",
+    "categories": {
+      "snake_bite": "Snake Bite",
+      "ticks": "Ticks",
+      "deworming": "Deworming",
+      "park_worm": "Park Worm",
+      "oral_health": "Oral & Jaw Health",
+      "grooming": "Fur Grooming",
+      "allergies": "Allergies",
+      "tumors": "Benign Tumors",
+      "urinary": "Urinary & Kidney System",
+      "neutering": "Neutering/Spaying"
+    }
+  },
+  "footer": {
+    "contact": "Contact Us",
+    "hours": "Working Hours",
+    "emergency": "24/7 Emergency"
+  }
+}
